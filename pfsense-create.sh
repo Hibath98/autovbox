@@ -3,7 +3,7 @@
 #The name it's going to be displayed as in VirtualBox
 name="Automatized Pfsense"
 #The type of operating system the VM needs
-os='Linux'
+os='Linux_64'
 #Size of the disk in Mbytes
 size=10000
 #The folder where the .iso file can be located
@@ -20,5 +20,5 @@ VBoxManage storageattach "$name" --storagectl "SATA Controller" --port 0  --devi
 VBoxManage modifyvm "$name" --boot1 dvd --boot2 disk --boot3 none --boot4 none
 VBoxManage modifyvm "$name" --memory 1024 --vram 128
 VBoxManage modifyvm "$name" --nic1 bridged --bridgeadapter1 enp2s0 --cableconnected1 on
-VBoxManage modifyvm "$name" --nic1 hostonly --hostonlyadapter1 vboxnet1 --cableconnected1 on
+VBoxManage modifyvm "$name" --nic2 hostonly --hostonlyadapter2 vboxnet1 --cableconnected2 on
 VBoxManage startvm "$name"
